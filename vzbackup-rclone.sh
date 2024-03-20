@@ -92,4 +92,7 @@ if [[ ${COMMAND} == 'job-end' ||  ${COMMAND} == 'job-abort' ]]; then
 
     rclone --config /root/.config/rclone/rclone.conf \
       delete --min-age ${MAX_CLOUD_AGE}d $drive:$backups/
+
+    rclone  --config /root/.config/rclone/rclone.conf \
+      rmdirs --leave-root $drive:$backups --verbose/
 fi
