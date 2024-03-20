@@ -28,9 +28,9 @@ exten=${tarfile#*.}
 filename=${tarfile%.*.*}
 
 if [[ ${COMMAND} == 'rehydrate' ]]; then
-    #echo "Please enter the date you want to rehydrate in the following format: YYYY/MM/DD"
-    #echo "For example, today would be: $timepath"
-    #read -p 'Rehydrate Date => ' rehydrate
+    echo "Please enter the date you want to rehydrate in the following format: YYYY/MM/DD"
+    echo "For example, today would be: $timepath"
+    read -p 'Rehydrate Date => ' rehydrate
     rclone --config /root/.config/rclone/rclone.conf \
     --drive-chunk-size=32M copy $drive:$backups/$rehydrate$CMDARCHIVE $dumpdir \
     -v --stats=60s --transfers=16 --checkers=16
