@@ -6,8 +6,8 @@ drive="onedrive_crypt"
 dumpdir="/var/lib/vz/dump" # Set this to where your vzdump files are stored
 backups="" # Set this to desired cloud folder
 
-MAX_AGE=7 # This is the age in days to keep local backup copies. Local backups older than this are deleted.
-MAX_CLOUD_AGE=31 # This is the age in days to keep cloud backup copies. Cloud backups older than this are deleted
+MAX_AGE=3 # This is the age in days to keep local backup copies. Local backups older than this are deleted.
+MAX_CLOUD_AGE=15 # This is the age in days to keep cloud backup copies. Cloud backups older than this are deleted
 ############ /END CONFIG
 
 _bdir="$dumpdir"
@@ -16,6 +16,7 @@ timepath="$(date +%Y-%m-%d)"
 rclonedir="$rcloneroot/$timepath"
 COMMAND=${1}
 rehydrate=${2} #enter the date you want to rehydrate in the following format: YYYY/MM/DD
+
 if [ ! -z "${3}" ];then
         CMDARCHIVE=$(echo "/${3}" | sed -e 's/\(.bin\)*$//g')
 fi
